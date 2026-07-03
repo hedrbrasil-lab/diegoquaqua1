@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diego Quaquá — Conheça a trajetória</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red: #9C1B2E;
+    --red-dark: #6E1220;
+    --navy: #16233F;
+    --navy-light: #223357;
+    --cream: #F6F3EC;
+    --paper: #FFFFFF;
+    --ink: #1B1B1B;
+    --muted: #5B5F6B;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Anton', sans-serif;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    line-height:0.98;
+  }
+
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.75rem;
+    font-weight:600;
+  }
+
+  a{color:inherit;}
+
+  img{display:block; max-width:100%; height:auto;}
+
+  /* -------- star motif -------- */
+  .star{
+    position:absolute;
+    width:38px; height:38px;
+    background: var(--red);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity:0.9;
+  }
+  .star.navy{background:var(--navy);}
+  .star.outline{background:transparent; border:2px solid rgba(255,255,255,0.5); clip-path:none; border-radius:0;}
+
+  /* -------- HERO -------- */
+  .hero{
+    position:relative;
+    background: var(--navy);
+    padding: 3.2rem 1.5rem 0;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 85% 10%, rgba(156,27,46,0.35), transparent 45%),
+      radial-gradient(circle at 5% 90%, rgba(156,27,46,0.25), transparent 40%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:1080px; margin:0 auto; position:relative; z-index:2;
+  }
+  .hero-eyebrow{ color:#D9B2B8; margin-bottom:0.8rem; }
+  .hero h1{
+    color:#fff;
+    font-size:clamp(2.6rem, 8vw, 5.4rem);
+  }
+  .hero h1 span{ color: var(--red); display:block; -webkit-text-stroke:1.5px #fff; }
+  .hero-sub{
+    color:#C9CEDA; max-width:36ch; margin-top:1.2rem; font-size:1.05rem;
+  }
+  .hero-photo{
+    margin-top:2.6rem;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55);
+    border: 4px solid rgba(255,255,255,0.08);
+  }
+  .hero-photo img{ width:100%; }
+  .hero-caption{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0.9rem 0.2rem 2.6rem;
+    color:#8E94A6; font-size:0.85rem;
+    font-family:'Oswald', sans-serif; letter-spacing:0.04em;
+  }
+
+  /* -------- BIO -------- */
+  .bio{
+    max-width:900px; margin:0 auto; padding: 3.4rem 1.5rem 2rem;
+  }
+  .bio .kicker{
+    display:inline-block;
+    background: var(--red);
+    color:#fff;
+    font-family:'Anton', sans-serif;
+    text-transform:uppercase;
+    padding:0.35rem 1rem;
+    font-size:1.6rem;
+    transform: skewX(-6deg);
+    margin-bottom:1.6rem;
+  }
+  .bio p{
+    color:#2C2C2C;
+    font-size:1.05rem;
+    margin-bottom:1.1rem;
+    max-width:70ch;
+  }
+  .bio p:first-of-type::first-letter{
+    font-family:'Anton', sans-serif;
+    font-size:3.2rem;
+    float:left;
+    line-height:0.8;
+    padding-right:0.5rem;
+    color: var(--red);
+  }
+
+  /* -------- SECTION HEADERS -------- */
+  .section{
+    max-width:1080px; margin:0 auto; padding: 3rem 1.5rem;
+  }
+  .section-head{
+    display:flex; align-items:baseline; gap:0.9rem; margin-bottom:0.6rem;
+    flex-wrap:wrap;
+  }
+  .section-head .tag{
+    background: var(--red); color:#fff;
+    font-family:'Anton'; text-transform:uppercase;
+    padding:0.25rem 0.7rem; font-size:1rem;
+  }
+  .section-head h2{
+    color: var(--navy);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  }
+  .section-intro{
+    color: var(--muted); max-width:75ch; margin-bottom:2.2rem; font-size:1.02rem;
+  }
+
+  .role-label{
+    font-family:'Oswald', sans-serif;
+    background: var(--navy);
+    color:#fff;
+    display:inline-block;
+    padding:0.55rem 1.1rem;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    font-size:0.92rem;
+    margin: 2.2rem 0 1.1rem;
+    clip-path: polygon(0 0, 100% 0, 97% 100%, 0% 100%);
+  }
+  .role-label:first-of-type{ margin-top:0; }
+
+  /* -------- CARD GRID -------- */
+  .grid2{
+    display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-bottom:1.1rem;
+  }
+  @media (max-width:720px){ .grid2{grid-template-columns:1fr;} }
+
+  .card{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    background: var(--red);
+    color:#fff;
+    display:flex; flex-direction:column;
+  }
+  .card.navy{background:var(--navy);}
+  .card.light{ background:var(--paper); color:var(--ink); border:1px solid #E4E0D6;}
+
+  .card-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0.85rem 1.1rem;
+    font-family:'Oswald', sans-serif; font-weight:600;
+    text-transform:uppercase; letter-spacing:0.02em; font-size:1rem;
+  }
+  .card.light .card-head{ background:#EFEBE1; color:var(--navy); }
+  .check{
+    width:22px; height:22px; flex:0 0 auto;
+    border-radius:50%;
+    border:2px solid currentColor;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .check svg{width:12px; height:12px;}
+
+  .card-body{ padding:0 1.1rem 1.1rem; font-size:0.96rem; }
+  .card.light .card-body{ padding:0.9rem 1.1rem 1.1rem; }
+
+  .card-photo{
+    grid-column: span 1;
+    border-radius:4px; overflow:hidden;
+    border:1px solid #E4E0D6;
+  }
+  .card-photo img{ width:100%; height:100%; object-fit:cover; }
+
+  .pair{
+    display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-bottom:1.1rem; align-items:stretch;
+  }
+  @media (max-width:720px){ .pair{grid-template-columns:1fr;} }
+  .pair .card, .pair .card-photo{ min-height:220px; }
+  .pair.reverse{ direction:rtl; }
+  .pair.reverse > *{ direction:ltr; }
+
+  /* -------- QUOTE -------- */
+  .quote{
+    display:grid; grid-template-columns:1.4fr 1fr;
+    background: var(--red-dark);
+    color:#fff;
+    margin-top:1rem;
+  }
+  @media (max-width:720px){ .quote{grid-template-columns:1fr;} }
+  .quote-text{ padding:2.4rem 2.2rem; }
+  .quote-text .mark{ font-family:'Anton'; font-size:3rem; color:rgba(255,255,255,0.35); line-height:0.5; }
+  .quote-text p{ font-size:1.15rem; margin:0.8rem 0 1.4rem; max-width:52ch; }
+  .quote-attrib{ font-family:'Oswald'; font-weight:600; text-transform:uppercase; letter-spacing:0.03em; font-size:0.9rem; color:#E8B9BF; }
+  .quote-photo img{ width:100%; height:100%; object-fit:cover; display:block; min-height:220px; }
+
+  /* -------- FOOTER -------- */
+  footer{
+    background: var(--navy);
+    color:#fff;
+    padding:3rem 1.5rem 2.5rem;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  footer h2{ color:#fff; font-size:clamp(1.8rem,5vw,2.8rem); margin-bottom:0.4rem; }
+  footer .tagline{ font-family:'Oswald'; text-transform:uppercase; letter-spacing:0.15em; color:var(--red); font-weight:600; margin-bottom:1.6rem; }
+  footer .brand{
+    display:flex; align-items:center; justify-content:center; gap:0.6rem;
+    font-family:'Anton'; font-size:2rem; text-transform:uppercase;
+  }
+  footer .brand .star{ position:static; width:22px; height:22px; }
+  footer p.small{ color:#8E94A6; font-size:0.8rem; margin-top:2rem; font-family:'Oswald'; letter-spacing:0.05em; }
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="star" style="top:1.2rem; right:8%;"></span>
+  <span class="star navy" style="bottom:3rem; left:4%; transform:scale(1.4);"></span>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">CONHEÇA</p>
+    <h1>Diego<span>Quaquá</span></h1>
+    <p class="hero-sub">Presidente do PT&#8209;RJ, construiu sua trajetória na militância popular, na defesa de políticas públicas voltadas para inclusão, geração de renda e desenvolvimento social.</p>
+    <div class="hero-photo">
+      <img src="img/hero_crop.png" alt="Diego Quaquá, Lula e Eduardo Paes segurando camisas do Campus Universitário de Maricá">
+    </div>
+    <div class="hero-caption">
+      <span>Diego Quaquá · Lula · Eduardo Paes</span>
+      <span>Campus Universitário de Maricá</span>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio">
+  <span class="kicker">Quem é Diego Quaquá</span>
+  <p>Diego Quaquá é presidente do PT-RJ e construiu sua trajetória na militância popular, na defesa de políticas públicas voltadas para inclusão, geração de renda e desenvolvimento social. Ao longo dos anos, atuou em diferentes funções públicas, como secretário de Economia Solidária em Maricá e no Rio de Janeiro, vice-prefeito de Maricá e secretário municipal de Habitação da capital durante o governo de Eduardo Paes.</p>
+  <p>Seu trabalho na gestão pública esteve voltado à criação de oportunidades para a população por meio da economia solidária, do empreendedorismo popular e de programas de desenvolvimento local, levando infraestrutura e obras de melhorias nas favelas. Em diferentes cargos, participou da formulação e execução de iniciativas voltadas à redução das desigualdades e ao fortalecimento da economia nos territórios.</p>
+  <p>Em Maricá, contribuiu para projetos que ajudaram a transformar o município em referência nacional em inovação social. Entre as áreas de destaque de sua atuação estão o apoio à agricultura familiar, às hortas comunitárias, à produção local e a mecanismos que estimulam a circulação de recursos dentro das próprias comunidades.</p>
+</section>
+
+<!-- DE MARICÁ AO RIO -->
+<section class="section">
+  <div class="section-head">
+    <span class="tag">De Maricá</span>
+    <h2>ao Rio: realizações que deixaram marcas</h2>
+  </div>
+  <p class="section-intro">Seu trabalho está associado a iniciativas que ganharam reconhecimento pela capacidade de transformar vidas, como o fortalecimento do Banco Mumbuca, o programa Mumbuca Futuro, as Hortas Comunitárias e projetos de habitação e economia solidária. São ações que ajudaram a ampliar oportunidades e melhorar a qualidade de vida da população.</p>
+
+  <div class="role-label">Secretário de Economia Solidária de Maricá</div>
+
+  <div class="pair">
+    <div class="card">
+      <div class="card-head">Banco Mumbuca <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Diego Quaquá foi um dos grandes responsáveis pelo fortalecimento da Moeda Social Mumbuca ao criar o Banco Comunitário Mumbuca, iniciativa que transformou Maricá em referência mundial em renda básica, inclusão financeira e desenvolvimento local.</div>
+    </div>
+    <div class="card-photo"><img src="img/mumbuca_ribbon.png" alt="Inauguração com corte de fita, comunidade reunida"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card navy">
+      <div class="card-head">Associações de Moradores <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Atuou no fortalecimento das associações de moradores, ampliando o diálogo entre o poder público e as comunidades, tanto em Maricá quanto durante sua passagem pela Secretaria Municipal de Habitação do Rio de Janeiro.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">Agricultura Familiar <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Incentivou o fortalecimento das hortas comunitárias e da agricultura familiar em Maricá, organizando as cooperativas, promovendo a produção de alimentos saudáveis dentro das comunidades, gerando renda, segurança alimentar e qualidade de vida.</div>
+    </div>
+  </div>
+
+  <div class="role-label">Vice-prefeito de Maricá</div>
+
+  <div class="pair">
+    <div class="card-photo"><img src="img/boat.png" alt="Pescador em barco artesanal"></div>
+    <div class="card">
+      <div class="card-head">Pesca Artesanal <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Defendeu e apoiou a pesca artesanal como instrumento de geração de emprego, preservação cultural e desenvolvimento econômico sustentável para famílias que vivem do mar, além de participar ativamente da criação da cooperativa de pesca da cidade.</div>
+    </div>
+  </div>
+
+  <div class="pair reverse">
+    <div class="card-photo"><img src="img/sim_eu_posso.png" alt="Diego Quaquá discursando ao microfone no evento Sim, Eu Posso"></div>
+    <div class="card navy">
+      <div class="card-head">Sim, Eu Posso <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Implementou em Maricá o programa "Sim, Eu Posso", levando alfabetização para jovens e adultos, especialmente nas comunidades, aliando educação popular, qualificação profissional e oportunidades de inclusão social.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECRETARIO ECONOMIA SOLIDARIA RJ -->
+<section class="section">
+  <div class="role-label" style="margin-top:0;">Secretário de Economia Solidária do Rio de Janeiro</div>
+
+  <div class="pair">
+    <div class="card">
+      <div class="card-head">Feiras da Economia Solidária <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Ampliou as feiras de economia solidária, criando oportunidades para pequenos produtores, artesãos e empreendedores comercializarem seus produtos e fortalecerem a renda local.</div>
+    </div>
+    <div class="card-photo"><img src="img/feiras.png" alt="Produtores em feira de economia solidária"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card light">
+      <div class="card-head">Carteira do Artesão <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Atuou na valorização dos artesãos, criando o acesso à Carteira do Artesão e fortalecendo políticas públicas para o setor criativo e cultural.</div>
+    </div>
+    <div class="card navy">
+      <div class="card-head">CAF — Cadastro da Agricultura Familiar <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Contribuiu para ampliar o acesso dos agricultores familiares ao CAF, garantindo mais oportunidades de crédito, assistência técnica e participação em programas governamentais.</div>
+    </div>
+  </div>
+
+  <div class="role-label">Secretário de Habitação do Rio de Janeiro</div>
+
+  <div class="pair">
+    <div class="card-photo"><img src="img/construction.png" alt="Diego Quaquá em obra com capacete, acompanhado de equipe"></div>
+    <div class="card">
+      <div class="card-head">Minha Casa, Minha Vida <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Diego Quaquá liderou a retomada das obras do programa Minha Casa, Minha Vida no Rio de Janeiro, destravando projetos que permaneceram paralisados por anos. Sua atuação foi fundamental para ampliar o acesso à moradia digna.</div>
+    </div>
+  </div>
+
+  <div class="pair reverse">
+    <div class="card-photo"><img src="img/favela_guy.png" alt="Diego Quaquá de braços abertos com vista de uma comunidade ao fundo"></div>
+    <div class="card navy">
+      <div class="card-head">Urbanização de Favelas <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span></div>
+      <div class="card-body">Comandou investimentos em obras de infraestrutura, saneamento e equipamentos públicos, promovendo mais dignidade para moradores de comunidades do Rio de Janeiro.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <span class="display" style="display:inline-block; background:var(--navy); color:#fff; padding:0.7rem 1.6rem; font-size:1.6rem;">E muito mais!</span>
+  </div>
+</section>
+
+<!-- EXEMPLO DE MARICA -->
+<section class="section">
+  <div class="section-head">
+    <span class="tag">Exemplo de Maricá</span>
+    <h2>para todo o Rio</h2>
+  </div>
+  <p class="section-intro">Desde o primeiro mandato de Washington Quaquá como prefeito de Maricá, a cidade passou por uma série de transformações que mudaram a realidade da população. Ao longo desse processo, Diego esteve ao lado de seu pai, acompanhando de perto cada avanço, aprendendo com as experiências bem-sucedidas e participando da construção de políticas públicas que transformam vidas.</p>
+
+  <p class="eyebrow" style="color:var(--red); margin-bottom:1rem;">+ Projetos que fizeram Maricá referência nacional!</p>
+
+  <div class="pair">
+    <div class="card">
+      <div class="card-head">Tarifa Zero</div>
+      <div class="card-body">Maricá é pioneira e se tornou referência nacional em mobilidade urbana ao implantar um sistema de transporte público gratuito. A iniciativa garante o direito de ir e vir da população, reduz os gastos das famílias com transporte e amplia o acesso ao trabalho, à educação, à saúde e ao lazer.</div>
+    </div>
+    <div class="card-photo"><img src="img/bus.jpeg" alt="Ônibus do sistema Tarifa Zero de Maricá"></div>
+  </div>
+
+  <div class="pair reverse">
+    <div class="card-photo"><img src="img/graduates.jpeg" alt="Formandos com beca e capelo em cerimônia de formatura"></div>
+    <div class="card navy">
+      <div class="card-head">Passaporte Universitário</div>
+      <div class="card-body">Criado para ampliar o acesso ao ensino superior, o programa concede bolsas de estudo em instituições privadas para moradores do município. A iniciativa já permitiu que milhares de estudantes ingressassem na universidade, contribuindo para a formação profissional e a geração de novas oportunidades.</div>
+    </div>
+  </div>
+
+  <div class="pair">
+    <div class="card">
+      <div class="card-head">Moeda Social Mumbuca</div>
+      <div class="card-body">Reconhecida internacionalmente, a Moeda Social Mumbuca fortalece a economia local ao incentivar que os recursos circulem dentro do próprio município. O programa beneficia famílias por meio de transferências de renda e estimula o comércio, gerando desenvolvimento econômico com inclusão social.</div>
+    </div>
+    <div class="card-photo"><img src="img/mumbuca_cards.jpeg" alt="Cartões do Banco Mumbuca"></div>
+  </div>
+
+  <div class="quote">
+    <div class="quote-text">
+      <span class="eyebrow" style="color:#E8B9BF;">Fala, Quaquá!</span>
+      <span class="mark">&ldquo;</span>
+      <p>Diego é daqueles quadros que unem compromisso político, capacidade de gestão e sensibilidade. Ao longo da sua trajetória, ajudou a construir políticas públicas que mudaram a vida de milhares de pessoas, sempre com os pés no chão e ouvindo quem mais precisa. Seja na Economia Solidária, na Habitação ou no fortalecimento de programas que se tornaram referência, deixou sua marca com trabalho, dedicação e resultados concretos.</p>
+      <p class="quote-attrib">— Washington Quaquá, prefeito de Maricá</p>
+    </div>
+    <div class="quote-photo"><img src="img/washington_portrait.png" alt="Washington Quaquá, prefeito de Maricá"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="star" style="top:1.5rem; left:6%;"></span>
+  <span class="star" style="bottom:2rem; right:8%; transform:scale(1.3);"></span>
+  <p class="tagline">Vamos juntos!</p>
+  <div class="brand"><span class="star"></span> Diego Quaquá</div>
+  <p class="small">Conteúdo reproduzido a partir do material de campanha impresso — PT&#8209;RJ</p>
+</footer>
+
+</body>
+</html>
